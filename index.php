@@ -8,7 +8,7 @@ if (!empty($key)) {
 }
 
 if ($existKey) {
-  $data = @file_get_contents('https://raw.githubusercontent.com/dhlife09/Corona-19-API/master/SAMPLE_vBETA.json?serviceKey='. $key);
+  $data = @file_get_contents('https://api.corona-19.kr/korea/beta/?serviceKey='. $key);
   $json = json_decode($data, true);
 }
 ?>
