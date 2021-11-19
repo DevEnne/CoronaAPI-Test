@@ -8,7 +8,7 @@ if (!empty($key)) {
 }
 
 if ($existKey) {
-  $data = @file_get_contents('https://raw.githubusercontent.com/dhlife09/Corona-19-API/master/3_beta.json?serviceKey='. $key);
+  $data = @file_get_contents('https://raw.githubusercontent.com/dhlife09/Corona-19-API/master/SAMPLE_vBETA.json?serviceKey='. $key);
   $json = json_decode($data, true);
 }
 ?>
@@ -45,14 +45,14 @@ if ($existKey) {
     <td><?php if($existKey) { echo number_format($json['korea']['totalCnt']). "명"; } ?></td>
   </tr>
   <tr>
-    <th scope="row">국내 전일대비 확진자 수</th>
+    <th scope="row">전일대비 확진자 수</th>
     <td><?php if($existKey) { echo '+'. number_format($json['korea']['incDec']). "명"; } ?></td>
   </tr>
   <tr>
     <th scope="row">국내 완치자 수</th>
     <td><?php if($existKey) { echo number_format($json['korea']['recCnt']). "명"; } ?></td>
-  </tr>
   <tr>
+  </tr>
     <th scope="row">국내 사망자 수</th>
     <td><?php if($existKey) { echo number_format($json['korea']['deathCnt']). "명"; } ?></td>
   </tr>
