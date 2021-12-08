@@ -53,31 +53,31 @@ if ($existKey) {
     <table class="type02">
       </tr>
       <tr>
-        <th scope="row">업데이트 시간</th>
+        <th scope="row">업데이트 시간<br>(updateTime)</th>
         <td><?php if($existKey) { echo $json['API']['updateTime']; } ?></td>
       </tr>
       <tr>
-        <th scope="row">국내 확진자 수</th>
+        <th scope="row">국내 확진자 수<br>(totalCnt)</th>
         <td><?php if($existKey) { echo number_format($json['korea']['totalCnt']). "명"; } ?></td>
       </tr>
       <tr>
-        <th scope="row">전일대비 확진자 수</th>
+        <th scope="row">전일대비 확진자 수<br>(incDec)</th>
         <td><?php if($existKey) { echo '+'. number_format($json['korea']['incDec']). "명"; } ?></td>
       </tr>
       <tr>
-        <th scope="row">국내 완치자 수</th>
+        <th scope="row">국내 완치자 수<br>(recCnt)</th>
         <td><?php if($existKey) { echo number_format($json['korea']['recCnt']). "명"; } ?></td>
       <tr>
       </tr>
-        <th scope="row">국내 사망자 수</th>
+        <th scope="row">국내 사망자 수<br>(deathCnt)</th>
         <td><?php if($existKey) { echo number_format($json['korea']['deathCnt']). "명"; } ?></td>
       </tr>
       <tr>
-        <th scope="row">국내 치료중 환자 수</th>
+        <th scope="row">국내 치료중 환자 수<br>(isolCnt)</th>
         <td><?php if($existKey) { echo number_format($json['korea']['isolCnt']). "명"; } ?></td>
       </tr>
       <tr>
-        <th scope="row">국내 코로나 발생률</th>
+        <th scope="row">국내 코로나 발생률<br>(qurRate)</th>
         <td><?php if($existKey) { echo $json['korea']['qurRate']. " %"; } ?></td>
       </tr>
     </table>
