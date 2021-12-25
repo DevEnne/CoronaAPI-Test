@@ -12,13 +12,20 @@ $key = $_POST['apikey'];
 
 if (!empty($key)) {
   $existKey = true;
+  $existKey2 = true;
 } else {
   $existKey = false;
+  $existKey2 = false;
 }
 
 if ($existKey) {
   $data = @file_get_contents('https://api.corona-19.kr/korea/beta/?serviceKey='. $key);
   $json = json_decode($data, true);
+}
+
+if ($existKey2) {
+  $data2 = @file_get_contents('https://api.corona-19.kr/korea/vaccine/?serviceKey='. $key);
+  $json2 = json_decode($data2, true);
 }
 ?>
 
@@ -113,7 +120,42 @@ if ($existKey) {
         <td><?php if($existKey) { echo $json['seoul']['qurRate']. " %"; } ?></td>
       </tr>
     </table>
-
+    <p> 다음은 예방접종 현황 결과값입니다.</p>
+    <table class="type02">
+      </tr>
+      <tr>
+        <th scope="row">API NAME</th>
+        <td><?php if($existKey2) { echo $json2['API']['apiName']; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">업데이트 시간</th>
+        <td><?php if($existKey2) { echo $json2['API']['dataTime']; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">1차 접종 완료 전체 수<br>(vaccine_1)</th>
+        <td><?php if($existKey2) { echo number_format($json2['korea']['vaccine_1']['vaccine_1']). "명"; } ?></td>
+      <tr>
+      </tr>
+        <th scope="row">1차 접종 전일대비<br>(vaccine_1_new)</th>
+        <td><?php if($existKey2) { echo number_format($json2['korea']['vaccine_1']['vaccine_1_new']). "명"; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">2차 접종 완료 전체 수<br>(vaccine_2)</th>
+        <td><?php if($existKey2) { echo number_format($json2['korea']['vaccine_2']['vaccine_2']). "명"; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">2차 접종 전일대비<br>(vaccine_2_new)</th>
+        <td><?php if($existKey2){ echo number_format($json2['korea']['vaccine_2']['vaccine_2_new']). "명"; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">3차 접종 완료 전체 수<br>(vaccine_3)</th>
+        <td><?php if($existKey2){ echo number_format($json2['korea']['vaccine_3']['vaccine_3']). "명"; } ?></td>
+      </tr>
+      <tr>
+        <th scope="row">3차 접종 전일대비<br>(vaccine_3_new)</th>
+        <td><?php if($existKey2){ echo number_format($json2['korea']['vaccine_3']['vaccine_3_new']). "명"; } ?></td>
+      </tr>
+    </table>
     <p> API 키가 없으신 경우, <a href = "https://api.corona-19.kr" > Corona-19-API </a> 에서 API 키를 발급해주세요. </p>
   </body>
 </html>
