@@ -3,7 +3,7 @@ import json
 
 korea = "https://api.corona-19.kr/korea/beta/?serviceKey=" # 국내 코로나 발생 동향
 vaccine = "https://api.corona-19.kr/korea/vaccine/?serviceKey=" # 예방접종 현황
-apikey = "여기에 API키를 입력해주세요." # API 키를 다음 란에 입력해 주세요.
+apikey = "56My93v4fCOcdsQ2qeWlpUt1xhTGbnawP" # API 키를 다음 란에 입력해 주세요.
 
 response = requests.get(korea + apikey)
 message = response.text
@@ -23,7 +23,7 @@ if status == 200: # 국내 코로나 발생 동향이 정상적으로 불러와�
         print('[',(data["API"]["updateTime"]),']')
         print("\n")
         print('국내 확진자 수:', format(data["korea"]["totalCnt"], ','))
-        print('전일대비 확진자 수:', format(data["korea"]["incDec"], ','))
+        print('전일 신규합계 확진자 수:', format(data["korea"]["incDec"], ','))
         print('국내 완치자 수:', format(data["korea"]["recCnt"], ','))
         print('국내 사망자 수:', format(data["korea"]["deathCnt"], ','))
         print('국내 치료중 수:', format(data["korea"]["isolCnt"], ','))
@@ -34,9 +34,9 @@ if status == 200: # 국내 코로나 발생 동향이 정상적으로 불러와�
         print('[', (data2["API"]["apiName"]), (data2["API"]["dataTime"]), ']')
         print("\n")
         print('1차 접종 완료 수:', format(data2["korea"]["vaccine_1"]["vaccine_1"], ','))
-        print('1차 접종 전일대비: +', format(data2["korea"]["vaccine_1"]["vaccine_1_new"], ','))
+        print('1차 접종 전일 신규합계: +', format(data2["korea"]["vaccine_1"]["vaccine_1_new"], ','))
         print("\n")
         print('2차 접종 완료 수:', format(data2["korea"]["vaccine_2"]["vaccine_2"], ','))
-        print('2차 접종 전일대비: +', format(data2["korea"]["vaccine_2"]["vaccine_2_new"], ','))
+        print('2차 접종 전일 신규합계: +', format(data2["korea"]["vaccine_2"]["vaccine_2_new"], ','))
 else:
-    print("정상적으로 처리되지 않았습니다. API 키를 게 입력했는지 확인해주세요.")
+    print("정상적으로 처리되지 않았습니다. API 키를 옳게 입력했는지 확인해주세요.")
