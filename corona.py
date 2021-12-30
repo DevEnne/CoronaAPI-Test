@@ -1,8 +1,5 @@
-import re
 import requests
 import json
-
-from requests import status_codes
 
 korea = "https://api.corona-19.kr/korea/beta/?serviceKey=" # 국내 코로나 발생 동향
 vaccine = "https://api.corona-19.kr/korea/vaccine/?serviceKey=" # 예방접종 현황
